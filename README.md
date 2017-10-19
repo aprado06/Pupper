@@ -3,9 +3,6 @@
 
 ## Setup
 
-- Fork this repository and clone it to your machine
-   + `git clone <URL>`
-
 - Download PostgreSQL and set up a user and database for development
     + Create user: pupper_user, password: pupper_user.
          + `createuser -P -s -e pupper_user`
