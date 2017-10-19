@@ -1,13 +1,13 @@
 {
-  "name": "ctp-blog",
-  "version": "0.0.1",
-  "description": "A simple blog.",
+  "name": "Pupper",
+  "version": "1.0.0",
+  "description": "The start of something great.",
   "scripts": {
     "start": "nodemon -L app.js",
     "test": "mocha --recursive tests/"
   },
-  "author": "Donato & Edgardo",
-  "license": "ISC",
+  "author": "Airton Prado, Mikhail Kreytser, Yao Cheng Wu, Yuan Zhou",
+  "license": "MIT",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "1.18.2",
