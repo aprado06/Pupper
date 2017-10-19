@@ -19,7 +19,7 @@ module.exports = {
       successRedirect: '/profile',
       failureRedirect: '/login',
       failureFlash: true,
-      successFlash: true,
+      //successFlash: true,
     })(req, res);
   },
 };
