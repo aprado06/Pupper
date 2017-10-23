@@ -43,8 +43,8 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
-    bio: {
-      type: DataTypes.STRING,
+    admin:{
+      type: DataTypes.BOOLEAN,
       allowNull: false,
       validate: {
         notEmpty: true,
@@ -54,6 +54,14 @@ module.exports = (sequelize, DataTypes) => {
 
   User.associate = (models) => {
     models.User.hasMany(models.Post);
+  }
+
+  User.associate = (models) => {
+    models.User.hasOne(models.Profile);
+  }
+
+  User.associate = (models) => {
+    models.User.belongsTo(models.Profile);
   }
 
   User.beforeCreate((user) =>

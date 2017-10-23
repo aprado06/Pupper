@@ -1,11 +1,12 @@
 const express = require('express');
 const models = require('../models');
+const Redirect = require('../middlewares/redirect');
 
 module.exports = {
   registerRouter() {
     const router = express.Router();
 
-    router.get('/', this.index);
+    router.get('/', Redirect.ifLoggedIn('/profile'), this.index);
     router.post('/', this.submit);
 
     return router;
@@ -20,13 +21,13 @@ module.exports = {
       username: req.body.username,
       email: req.body.email,
       password: req.body.password,
-      bio: req.body.bio,
+      admin: false,
     }).then((user) => {
       req.login(user, () =>
-        res.redirect('/profile')
+        res.redirect('/set-up')
       );
     }).catch(() => {
-      res.render('sign-up');
+      res.render('sign-up',{ error: true});
     });
   },
 };

@@ -1,12 +1,13 @@
 const express = require('express');
 const models = require('../models');
+const Redirect = require('../middlewares/redirect');
 
 module.exports = {
   registerRouter() {
     const router = express.Router();
 
-    router.get('/', this.index);
-    router.get('/:username', this.show);
+    router.get('/',Redirect.ifNotAdmin(), this.index);
+    router.get('/:username',Redirect.ifNotAdmin(), this.show);
 
     return router;
   },
