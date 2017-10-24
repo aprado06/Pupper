@@ -7,11 +7,14 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
+    birthday: DataTypes.DATEONLY,
+    hobbies: DataTypes.STRING,
   });
 
   Profile.associate = (models) => {
-    models.Post.belongsTo(models.User);
-  }
+    Profile.hasOne(models.User);
+  };
+
 
   return Profile;
 };
