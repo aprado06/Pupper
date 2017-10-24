@@ -43,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
-    admin:{
+    admin: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       validate: {
@@ -54,25 +54,19 @@ module.exports = (sequelize, DataTypes) => {
 
   User.associate = (models) => {
     models.User.hasMany(models.Post);
-  }
-
+  };
   User.associate = (models) => {
-    models.User.hasOne(models.Profile);
-  }
+    User.belongsTo(models.Profile);
+  };
 
-  User.associate = (models) => {
-    models.User.belongsTo(models.Profile);
-  }
-
-  User.beforeCreate((user) =>
+  User.beforeCreate(user =>
     new sequelize.Promise((resolve) => {
       bcrypt.hash(user.password, null, null, (err, hashedPassword) => {
         resolve(hashedPassword);
       });
     }).then((hashedPw) => {
       user.password_hash = hashedPw;
-    })
-  );
+    }));
 
   return User;
 };

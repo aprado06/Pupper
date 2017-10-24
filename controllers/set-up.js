@@ -1,5 +1,4 @@
 const express = require('express');
-const models = require('../models');
 const Redirect = require('../middlewares/redirect');
 
 module.exports = {
@@ -16,10 +15,14 @@ module.exports = {
   create(req, res) {
     req.user.createProfile({
       bio: req.body.bio,
-    }).then((user) => {
+      birthday: req.body.birthday,
+      hobbies: req.body.hobbies,
+    })
+      .then(() => {
         res.redirect('/profile');
-    }).catch(() => {
-      res.render('set-up',{ error: true});
-    });
+      })
+      .catch(() => {
+        res.render('set-up', { error: true });
+      });
   },
 };
