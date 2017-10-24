@@ -7,7 +7,7 @@ const flash = require('connect-flash');
 const methodOverride = require('method-override');
 const models = require('./models/');
 const passport = require('./middlewares/authentication');
-const viewHelpers = require('./middlewares/viewHelpers')
+const viewHelpers = require('./middlewares/viewHelpers');
 
 const app = express();
 app.use(methodOverride('_method'));
@@ -19,6 +19,7 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static('./public'));
+app.use('/profile_pics', express.static('./public/profile_img'));
 
 app.engine('handlebars', exphbs({
   layoutsDir: './views/layouts',

@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     birthday: DataTypes.DATEONLY,
     hobbies: DataTypes.STRING,
+    profileImage: DataTypes.STRING,
   });
 
   Profile.associate = (models) => {

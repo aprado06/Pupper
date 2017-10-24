@@ -21,7 +21,12 @@
           
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <form name="set-up" action="/set-up" method="post">
+      <form name="upload-profile" action="/set-up" method="post" enctype="multipart/form-data">
+        <label >Upload a Profile Picture:</label>
+        <input type="file" name="profileImage" id="profileImage"/>
+        <span class="hint">Supported files: jpg, jpeg, png.</span>
+        <hr class="divider">
+        <br>
         <div class="form-group col-xs-12 floating-label-form-group controls">
 
           <label>Date of Birth</label>
