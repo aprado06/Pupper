@@ -54,9 +54,8 @@ module.exports = (sequelize, DataTypes) => {
 
   User.associate = (models) => {
     models.User.hasMany(models.Post);
-  };
-  User.associate = (models) => {
-    User.belongsTo(models.Profile);
+    models.User.hasOne(models.Profile);
+    models.User.hasMany(models.Pet);
   };
 
   User.beforeCreate(user =>

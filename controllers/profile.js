@@ -6,7 +6,7 @@ module.exports = {
   registerRouter() {
     const router = express.Router();
 
-    router.get('/', Redirect.ifNotLoggedInNoSetUp('/set-up'), this.index);
+    router.get('/', Redirect.ifNotLoggedInNoPet('/pet-set-up'), this.index);
 
     return router;
   },

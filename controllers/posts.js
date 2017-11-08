@@ -8,21 +8,21 @@ module.exports = {
     const router = express.Router();
 
     router.get('/', this.index);
-    router.get('/new', Redirect.ifNotLoggedInNoSetUp('/login'), this.new);
-    router.post('/', Redirect.ifNotLoggedInNoSetUp('/login'), this.create);
+    router.get('/new', Redirect.ifNotLoggedInNoPet('/login'), this.new);
+    router.post('/', Redirect.ifNotLoggedInNoPet('/login'), this.create);
     router.get('/:username/:slug', this.show);
     router.get('/:username/:slug/edit',
-                Redirect.ifNotLoggedInNoSetUp('/login'),
+                Redirect.ifNotLoggedInNoPet('/login'),
                 Redirect.ifNotAuthorized('/posts'),
                 this.edit
               );
     router.put('/:username/:slug',
-                Redirect.ifNotLoggedInNoSetUp('/login'),
+                Redirect.ifNotLoggedInNoPet('/login'),
                 Redirect.ifNotAuthorized('/posts'),
                 this.update
               );
     router.delete('/:username/:slug',
-                   Redirect.ifNotLoggedInNoSetUp('/login'),
+                   Redirect.ifNotLoggedInNoPet('/login'),
                    Redirect.ifNotAuthorized('/posts'),
                    this.delete
                   );

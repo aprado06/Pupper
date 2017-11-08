@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Profile = sequelize.define('profile', {
+  const Pet = sequelize.define('pet', {
     bio: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -12,10 +12,9 @@ module.exports = (sequelize, DataTypes) => {
     profileImage: DataTypes.STRING,
   });
 
-  Profile.associate = (models) => {
-    Profile.belongsTo(models.User);
+  Pet.associate = (models) => {
+    models.Pet.belongsTo(models.User);
   };
-
-
-  return Profile;
+  
+  return Pet;
 };
