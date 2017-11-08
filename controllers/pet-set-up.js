@@ -10,25 +10,25 @@ module.exports = {
   registerRouter() {
     const router = express.Router();
 
-    router.get('/', Redirect.ifNotLoggedIn('/sign-up'), Redirect.ifSetUpComplete(), this.index);
+    router.get('/', Redirect.ifNotLoggedInNoSetUp('/set-up'),this.index);
     router.post('/', upload.single('profileImage'), this.create);
     return router;
   },
   index(req, res) {
-    res.render('set-up');
+    res.render('pet-set-up');
   },
   create(req, res) {
-    req.user.createProfile({
+    req.user.createPet({
       bio: req.body.bio,
       birthday: req.body.birthday,
       hobbies: req.body.hobbies,
       profileImage: (req.file) ? req.file.filename : 'default',
     })
       .then(() => {
-        res.redirect('/pet-set-up');
+        res.redirect('/profile');
       })
       .catch(() => {
-        res.render('set-up', { error: true });
+        res.render('pet-set-up', { error: true });
       });
   },
 };

@@ -4,10 +4,17 @@ redirect.ifLoggedIn = (route) =>
   (req, res, next) => (req.user ? res.redirect(route) : next());
 
 redirect.ifNotLoggedInNoSetUp = (route = '/login') =>
-  (req, res, next) => (req.user ? (req.user.profileId ? next() : res.redirect('/set-up')) : res.redirect(route));
+  (req, res, next) => (req.user ? (req.user.getProfile() ? next() : res.redirect('/set-up')) : res.redirect(route));
 
+redirect.ifNotLoggedInNoPet = (route = '/login') =>
+  (req, res, next) => {
+  	req.user.getPets()
+  		.then((pets) => {
+  		  	(req.user ? (req.user.getProfile() ? (pets.length ? next() : res.redirect('/pet-set-up')) : res.redirect('/set-up')) : res.redirect(route))
+  		})
+  	};
 redirect.ifSetUpComplete = (route = '/profile') =>
-  (req, res, next) => (req.user.profileId ? res.redirect(route) : next() );
+  (req, res, next) => (req.user.getProfile() ? res.redirect(route) : next() );
 
 redirect.ifNotLoggedIn = (route = '/login') =>
   (req, res, next) => (req.user ? next() : res.redirect(route));
