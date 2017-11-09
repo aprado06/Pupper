@@ -10,7 +10,11 @@ module.exports = {
   registerRouter() {
     const router = express.Router();
 
+<<<<<<< HEAD
     router.get('/', Redirect.ifNotLoggedIn(), Redirect.ifNoSetUp(), this.index);
+=======
+    router.get('/', Redirect.ifNotLoggedIn(), Redirect.ifNoSetUp(),this.index);
+>>>>>>> 40549d4bf339d15a3e29e6deeb59578fd38a9fad
     router.post('/', upload.single('profileImage'), this.create);
     return router;
   },
