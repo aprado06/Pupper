@@ -11,9 +11,9 @@ module.exports = {
     return router;
   },
   index(req, res) {
-    models.Profile.findById(req.user.profileId)
-      .then((p) => {
+    req.user.getProfile()
+    .then((p) => {
         res.render('profile', { user: req.user, profile: p, success: req.flash('success') });
-      });
+    });
   },
 };
