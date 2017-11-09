@@ -3,18 +3,51 @@ const redirect = {};
 redirect.ifLoggedIn = (route) =>
   (req, res, next) => (req.user ? res.redirect(route) : next());
 
+redirect.ifNoSetUp = (route = '/set-up') =>
+  (req, res, next) => {
+    req.user.getProfile().then((profile) => {
+      if(profile == null)
+        res.redirect(route);
+      else
+        
+        next();
+    })
+  };
+
+redirect.ifSetUpComplete = (route = '/profile') =>
+  (req, res, next) => {
+    req.user.getProfile().then((profile) => {
+      if(profile == null)
+        next();
+      else
+        res.redirect(route);      
+    })
+  };
+
+redirect.ifNoPetSetUp = (route = '/pet-set-up') =>
+  (req, res, next) => {
+    req.user.getPets().then((pets) => {
+      if(pets.length >= 1)
+        next();
+      else
+        res.redirect(route);
+    })
+  };
+
+/*
 redirect.ifNotLoggedInNoSetUp = (route = '/login') =>
-  (req, res, next) => (req.user ? (req.user.getProfile() ? next() : res.redirect('/set-up')) : res.redirect(route));
+  (req, res, next) => {
+    (req.user ? (req.user.getProfile() ? next() : res.redirect('/set-up')) : res.redirect(route))};
 
 redirect.ifNotLoggedInNoPet = (route = '/login') =>
   (req, res, next) => {
-  	req.user.getPets()
-  		.then((pets) => {
-  		  	(req.user ? (req.user.getProfile() ? (pets.length ? next() : res.redirect('/pet-set-up')) : res.redirect('/set-up')) : res.redirect(route))
-  		})
+  	req.user ? req.user.getPets().then((pets) => {
+  		  	(req.user.getProfile() ?  res.redirect('/set-up'):(pets.length ? next() : res.redirect('/pet-set-up')) )
+  		}) : res.redirect(route)
   	};
-redirect.ifSetUpComplete = (route = '/profile') =>
-  (req, res, next) => (req.user.getProfile() ? res.redirect(route) : next() );
+
+*/
+//  (req, res, next) => (req.user.getProfile() ?   next() : res.redirect(route));
 
 redirect.ifNotLoggedIn = (route = '/login') =>
   (req, res, next) => (req.user ? next() : res.redirect(route));
