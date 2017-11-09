@@ -10,7 +10,7 @@ module.exports = {
   registerRouter() {
     const router = express.Router();
 
-    router.get('/', Redirect.ifNotLoggedInNoSetUp('/set-up'),this.index);
+    router.get('/', Redirect.ifNotLoggedIn(), Redirect.ifNoSetUp(), this.index);
     router.post('/', upload.single('profileImage'), this.create);
     return router;
   },
