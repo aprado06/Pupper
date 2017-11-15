@@ -28,10 +28,11 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
+    zipCode: DataTypes.INTEGER,
   });
 
   Profile.associate = (models) => {
-    Profile.belongsTo(models.User);
+    models.Profile.belongsTo(models.User);
   };
 
 

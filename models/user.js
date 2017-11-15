@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: true,
         isAlphanumeric: true,
-      },
+      }, 
     },
     email: {
       type: DataTypes.STRING,
@@ -56,6 +56,7 @@ module.exports = (sequelize, DataTypes) => {
     models.User.hasMany(models.Post);
     models.User.hasOne(models.Profile);
     models.User.hasMany(models.Pet);
+    models.User.belongsToMany(models.User, {as:'other_user', through: 'connection'});
   };
 
   User.beforeCreate(user =>

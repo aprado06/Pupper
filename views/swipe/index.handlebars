@@ -7,7 +7,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-heading">
-          <h1>{{user.username}}</h1>
+          <h1>Swipe</h1>
           <hr class="small">
           <span class="subheading">{{user.firstName}} {{user.lastName}}</span>
         </div>
@@ -24,15 +24,20 @@
     <hr class="divider">
     <br>
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <label>DATE OF BIRTH</label>
-      <p>{{profile.birthday}}</p>
-      <hr class="divider">
-      <label>BIO</label>
-      <p>{{profile.bio}}</p>
-      <hr class="divider">
-      <label>HOBBIES</label>
-      <p>{{profile.hobbies}}</p>
-      <hr class="divider">
+      {{#each local_users}}
+          <div class="user-preview">
+                  
+                  <h2 class="user name">
+                      {{this.user.firstName}} {{this.user.lastName}}
+                      <img src="/profile_pics/{{this.profileImage}}" class="img-rounded" alt="" style="width:200px">
+                  </h2>
+                  <div class="col-lg-1 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+                  </div>
+              </a>
+          </div>
+          <hr>
+        {{/each}}
     </div>
   </div>
 </div>
