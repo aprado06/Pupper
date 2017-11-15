@@ -24,15 +24,16 @@
     <hr class="divider">
     <br>
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <label>DATE OF BIRTH</label>
-      <p>{{profile.birthday}}</p>
-      <hr class="divider">
-      <label>BIO</label>
-      <p>{{profile.bio}}</p>
-      <hr class="divider">
-      <label>HOBBIES</label>
-      <p>{{profile.hobbies}}</p>
-      <hr class="divider">
+      {{#each local_users}}
+          <div class="user-preview">
+                  <h2 class="user name">
+                      {{this.user.fistName}}
+                  </h2>
+              </a>
+              <p class="post-meta">Posted by <a href="/users/{{this.user.username}}">{{this.user.username}}</a></p>
+          </div>
+          <hr>
+        {{/each}}
     </div>
   </div>
 </div>
