@@ -7,7 +7,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-heading">
-          <h1>{{user.username}}</h1>
+          <h1>Swipe</h1>
           <hr class="small">
           <span class="subheading">{{user.firstName}} {{user.lastName}}</span>
         </div>
@@ -26,11 +26,15 @@
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       {{#each local_users}}
           <div class="user-preview">
+                  
                   <h2 class="user name">
-                      {{this.user.fistName}}
+                      {{this.user.firstName}} {{this.user.lastName}}
+                      <img src="/profile_pics/{{this.profileImage}}" class="img-rounded" alt="" style="width:200px">
                   </h2>
+                  <div class="col-lg-1 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+                  </div>
               </a>
-              <p class="post-meta">Posted by <a href="/users/{{this.user.username}}">{{this.user.username}}</a></p>
           </div>
           <hr>
         {{/each}}

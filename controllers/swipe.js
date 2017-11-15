@@ -21,7 +21,7 @@ module.exports = {
         }
 
       }).then((local_users) =>{
-        res.render('swipe', { user: req.user, /*profile: user_profile,*/ local_users, success: req.flash('success') });
+        res.render('swipe', { user: req.user,  local_users, success: req.flash('success') });
       }); 
     });
   },
