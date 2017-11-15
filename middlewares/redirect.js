@@ -26,13 +26,12 @@ redirect.ifSetUpComplete = (route = '/profile') =>
 redirect.ifNoPetSetUp = (route = '/pet-set-up') =>
   (req, res, next) => {
     req.user.getPets().then((pets) => {
-      console.log(pets);
-      if(pets.length == 0)
-        res.redirect(route);
-      else
+      if(pets.length >= 1)
         next();
-      })
-    };
+      else
+        res.redirect(route);
+    })
+  };
 
 redirect.ifNotLoggedIn = (route = '/login') =>
   (req, res, next) => (req.user ? next() : res.redirect(route));
