@@ -1,0 +1,38 @@
+{{#each success}}
+  <div class="alert alert-danger">{{this}}</div>
+{{/each}}
+
+<header class="intro-header" style="background-image: url('/img/about-bg.jpg')">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-heading">
+          <h1>{{user.username}}</h1>
+          <hr class="small">
+          <span class="subheading">{{user.firstName}} {{user.lastName}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-1 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <img src="/profile_pics/{{profile.profileImage}}" class="img-rounded" alt="" style="width:200px">
+    </div>
+    <hr class="divider">
+    <br>
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <label>DATE OF BIRTH</label>
+      <p>{{profile.birthday}}</p>
+      <hr class="divider">
+      <label>BIO</label>
+      <p>{{profile.bio}}</p>
+      <hr class="divider">
+      <label>HOBBIES</label>
+      <p>{{profile.hobbies}}</p>
+      <hr class="divider">
+    </div>
+  </div>
+</div>
