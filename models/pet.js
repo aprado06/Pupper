@@ -1,5 +1,12 @@
 module.exports = (sequelize, DataTypes) => {
   const Pet = sequelize.define('pet', {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+    },
     bio: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -9,6 +16,13 @@ module.exports = (sequelize, DataTypes) => {
     },
     birthday: {
       type: DataTypes.DATEONLY,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+    },
+    breed: {
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
         notEmpty: true,
