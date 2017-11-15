@@ -7,9 +7,27 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
-    birthday: DataTypes.DATEONLY,
-    hobbies: DataTypes.STRING,
-    profileImage: DataTypes.STRING,
+    birthday: {
+      type: DataTypes.DATEONLY,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+    },
+    hobbies: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+    },
+    profileImage: {
+      type :DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+    },
   });
 
   Pet.associate = (models) => {
