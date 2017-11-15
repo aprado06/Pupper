@@ -12,6 +12,7 @@ module.exports = {
 
     router.get('/', Redirect.ifNotLoggedIn(), Redirect.ifNoSetUp(), this.index);
     router.post('/', upload.single('profileImage'), this.create);
+    
     return router;
   },
   index(req, res) {
