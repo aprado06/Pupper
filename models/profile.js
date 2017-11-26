@@ -28,7 +28,13 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
-    zipCode: DataTypes.INTEGER,
+    zipCode: {
+      type :DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+    },
   });
 
   Profile.associate = (models) => {

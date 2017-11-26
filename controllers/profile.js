@@ -13,7 +13,7 @@ module.exports = {
   index(req, res) {
     req.user.getProfile()
     .then((p) => {
-        res.render('profile', { user: req.user, profile: p, success: req.flash('success') });
+        res.render('profile', { user: req.user, profile: p, success: req.flash('success')});
     });
   },
 };
