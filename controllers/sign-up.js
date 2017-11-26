@@ -12,12 +12,10 @@ module.exports = {
     return router;
   },
   index(req, res) {
-    res.render('sign-up');
+    res.render('sign-up', {onSignUpPage: true});
   },
   submit(req, res) {
     models.User.create({
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
       username: req.body.username,
       email: req.body.email,
       password: req.body.password,

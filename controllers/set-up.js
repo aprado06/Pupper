@@ -19,6 +19,8 @@ module.exports = {
   },
   create(req, res) {
     req.user.createProfile({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
       bio: req.body.bio,
       birthday: req.body.birthday,
       hobbies: req.body.hobbies,
