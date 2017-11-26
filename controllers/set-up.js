@@ -22,6 +22,7 @@ module.exports = {
       bio: req.body.bio,
       birthday: req.body.birthday,
       hobbies: req.body.hobbies,
+      zipCode: req.body.zipCode,
       profileImage: (req.file) ? req.file.filename : 'default',
     })
       .then(() => {
