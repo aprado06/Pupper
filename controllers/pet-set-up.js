@@ -20,6 +20,8 @@ module.exports = {
   },
   create(req, res) {
     req.user.createPet({
+      name: req.body.name,
+      breed: req.body.breed,
       bio: req.body.bio,
       birthday: req.body.birthday,
       hobbies: req.body.hobbies,
