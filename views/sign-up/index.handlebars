@@ -1,57 +1,52 @@
-<header class="intro-header" style="background-image: url('/img/contact-bg.jpg')">
+<link href="/css/set-up.css" rel="stylesheet">
+
+<div class="set-up-bg">
   <div class="container">
+    {{#if error}}
+      <div class="form-group col-xs-12 floating-label-form-group controls">
+        <div class="alert alert-danger"><center>ERROR</center>
+        </div>
+      </div>
+    {{/if}}
+    <div class="page-title row col-md-6 col-md-offset-3">
+      <h1>Sign Up</h1>
+      <hr class="small">
+      <span class="subheading">Do it for the puppers!</span>
+      <br><br>
+    </div>
+
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="page-heading">
-          <h1>Sign Up</h1>
-          <hr class="small">
-          <span class="subheading">Do it for the puppers!</span>
-        </div>
+        <form name="sign-up" action="/sign-up" method="post">
+          <div class="row control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label>Username</label>
+              <input type="text" class="form-control" placeholder="Username" name="username" required data-validation-required-message="Please enter your username.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="row control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label>Email Address</label>
+              <input type="email" class="form-control" placeholder="Email Address" name="email" required data-validation-required-message="Please enter your email address.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="row control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label>Password</label>
+              <input type="password" class="form-control" placeholder="Password" name="password" required data-validation-required-message="Please enter your password.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="form-group col-xs-12">
+                <button type="submit" class="btn btn-default">Send</button>
+            </div>
+          </div>
+        </form>
       </div>
-    </div>
-  </div>
-</header>
-
-<div class="container">
-
-  {{#if error}}
-    <div class="form-group col-xs-12 floating-label-form-group controls">
-      <div class="alert alert-danger"><center>ERROR</center>
-      </div>
-    </div>
-  {{/if}}
-
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <form name="sign-up" action="/sign-up" method="post">
-        <div class="row control-group">
-          <div class="form-group col-xs-12 floating-label-form-group controls">
-            <label>Username</label>
-            <input type="text" class="form-control" placeholder="Username" name="username" required data-validation-required-message="Please enter your username.">
-            <p class="help-block text-danger"></p>
-          </div>
-        </div>
-        <div class="row control-group">
-          <div class="form-group col-xs-12 floating-label-form-group controls">
-            <label>Email Address</label>
-            <input type="email" class="form-control" placeholder="Email Address" name="email" required data-validation-required-message="Please enter your email address.">
-            <p class="help-block text-danger"></p>
-          </div>
-        </div>
-        <div class="row control-group">
-          <div class="form-group col-xs-12 floating-label-form-group controls">
-            <label>Password</label>
-            <input type="password" class="form-control" placeholder="Password" name="password" required data-validation-required-message="Please enter your password.">
-            <p class="help-block text-danger"></p>
-          </div>
-        </div>
-        <br>
-        <div class="row">
-          <div class="form-group col-xs-12">
-              <button type="submit" class="btn btn-default">Send</button>
-          </div>
-        </div>
-      </form>
     </div>
   </div>
 </div>
