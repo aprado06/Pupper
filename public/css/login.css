@@ -223,7 +223,7 @@ input:-webkit-autofill:active {
 
   .puppy2 {
     position: absolute;
-    margin-left: -100px;
+    margin-left: -120px;
     width: 250px;
     animation-name: rotate1;
     animation-duration: 1s;

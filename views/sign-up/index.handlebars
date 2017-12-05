@@ -1,4 +1,4 @@
-<link href="/css/set-up.css" rel="stylesheet">
+<link href="/css/sign-up.css" rel="stylesheet">
 
 <div class="set-up-bg">
   <div class="container">
@@ -7,14 +7,35 @@
         <div class="alert alert-danger"><center>ERROR</center>
         </div>
       </div>
-    {{/if}}
-    <div class="page-title row col-md-6 col-md-offset-3">
-      <h1>Sign Up</h1>
-      <hr class="small">
+    {{/if}} 
+    <div class="page-title row col-md-6 col-md-offset-3">   
+      <h1>Sign Up</h1>       
+      <hr class="small">     
       <span class="subheading">Do it for the puppers!</span>
       <br><br>
     </div>
-
+    <div
+    class="CSS_slideshow"
+    data-show-indicators="true"
+    data-indicators-position="in"
+    data-show-buttons="true"
+    data-show-wrap-buttons="true"
+    data-animation-style="slide"
+    style="-moz-transition-duration: 0.3s; -webkit-transition-duration: 0.3s; transition-duration: 0.3s;"
+>
+    <div class="CSS_slideshow_wrapper">
+        <input type="radio" name="css3slideshow" id="slide1" checked /><!--
+     --><label for="slide1"><img src="/img/SignUp3.jpg" /></label><!--
+     --><input type="radio" name="css3slideshow" id="slide2" /><!--
+     --><label for="slide2"><img src="/img/SignUp1.jpg" /></label><!--
+     --><input type="radio" name="css3slideshow" id="slide3" /><!--
+     --><label for="slide3"><img src="/img/SignUp4.jpg" /></label><!--
+     --><input type="radio" name="css3slideshow" id="slide4" /><!--
+     --><label for="slide4"><img src="/img/SignUp2a.jpg" /></label><!--
+     --><input type="radio" name="css3slideshow" id="slide5" /><!--
+     --><label for="slide5"><img src="/img/SignUp5.jpg" /></label> 
+    </div>
+</div> 
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <form name="sign-up" action="/sign-up" method="post">
