@@ -33,15 +33,17 @@
       <label>HOBBIES</label>
       <p>{{profile.hobbies}}</p>
       <hr class="divider">
+      {{#each pets}}
       <label>pet's name</label>
-      <p>{{pet.name}}</p>
+      <p>{{this.name}}</p>
       <hr class="divider">
       <label> Pet's breed </label>
-      <p>{{pet.breed}}</p>
+      <p>{{this.breed}}</p>
       <hr class="divider">
       <label>Pet's hobbies</label>
-      <p>{{pet.hobbies}}</p>
+      <p>{{this.hobbies}}</p>
       <hr class="divider">
+      {{/each}}
     </div>
   </div>
 </div>
